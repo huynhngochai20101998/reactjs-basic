@@ -1,0 +1,32 @@
+.nav {
+  &-brand {
+    &__img {
+    }
+  }
+  &-category {
+    display: flex;
+    
+
+    &__menu {
+      .menu-item {
+      }
+    }
+  }
+  &-addon {
+    &-auth {
+      .auth-signin {
+        .btn-signin {
+        }
+      }
+      .auth-signup {
+        .btn-signup {
+        }
+      }
+
+      .btn {
+        .auth__btn {
+        }
+      }
+    }
+  }
+}
