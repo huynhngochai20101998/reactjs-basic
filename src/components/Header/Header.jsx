@@ -1,39 +1,34 @@
 import React, { Component } from "react";
 import "./Header.scss";
 import Logo from "../../assets/images/logo.jfif";
-import SignIn from "../Button/SignIn/SignIn";
-import SignUp from "../Button/SignUp/SignUp";
-import Logout from "../Button/LogOut/Logout";
+import AuthButton from "../Button/AuthButton/AuthButton";
 
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoutClick = this.handleLogoutClick.bind(this);
     this.state = { isLoggedIn: false };
   }
 
-  handleLoginClick() {
-    console.log("login");
-    this.setState({ isLoggedIn: true });
-  }
- 
-  handleLogoutClick() {
-    console.log("logout");
-    this.setState({ isLoggedIn: false });
-  }
+  handleClick = () => {
+    console.log(this.state.isLoggedIn);
+    if (this.state.isLoggedIn) {
+      this.setState({ isLoggedIn: false });
+    } else {
+      this.setState({ isLoggedIn: true });
+    }
+  };
 
   render() {
     const isLoggedIn = this.state.isLoggedIn;
 
     let button;
     if (isLoggedIn) {
-      button = <Logout onClick={this.handleLogoutClick} />;
+      button = <AuthButton buttonName="logout" onClick={this.handleClick} />;
     } else {
       button = (
         <>
-          <SignIn onClick={this.handleLoginClick} />
-          <SignUp onClick={this.handleLoginClick} />
+          <AuthButton buttonName="login" onClick={this.handleClick} />
+          <AuthButton buttonName="signup" onClick={this.handleClick} />
         </>
       );
     }
