@@ -6,10 +6,10 @@ export default class AuthButton extends Component {
 
     let className = "btn btn-primary auth__btn btn-signin";
     switch (buttonName) {
-      case "login":
+      case "Login":
         className = "btn btn-info auth__btn btn-signin";
         break;
-      case "signup":
+      case "Signup":
         className = "btn btn-primary auth__btn btn-signin";
         break;
       default:
@@ -19,7 +19,7 @@ export default class AuthButton extends Component {
     return (
       <span className="auth-signin mx-1">
         <p onClick={onClick} className={className}>
-          SignUp
+          {this.props.children}
         </p>
       </span>
     );

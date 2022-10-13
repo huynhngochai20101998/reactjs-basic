@@ -4,34 +4,8 @@ import Logo from "../../assets/images/logo.jfif";
 import AuthButton from "../Button/AuthButton/AuthButton";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isLoggedIn: false };
-  }
-
-  handleClick = () => {
-    console.log(this.state.isLoggedIn);
-    if (this.state.isLoggedIn) {
-      this.setState({ isLoggedIn: false });
-    } else {
-      this.setState({ isLoggedIn: true });
-    }
-  };
-
   render() {
-    const isLoggedIn = this.state.isLoggedIn;
-
-    let button;
-    if (isLoggedIn) {
-      button = <AuthButton buttonName="logout" onClick={this.handleClick} />;
-    } else {
-      button = (
-        <>
-          <AuthButton buttonName="login" onClick={this.handleClick} />
-          <AuthButton buttonName="signup" onClick={this.handleClick} />
-        </>
-      );
-    }
+    const { switchLogin, switchSignUp } = this.props;
 
     return (
       <header className="nav">
@@ -47,7 +21,14 @@ class Header extends Component {
           </div>
         </div>
         <div className="nav-addon">
-          <div className="nav-addon-auth">{button}</div>
+          <div className="nav-addon-auth">
+            <AuthButton buttonName="Login" onClick={switchLogin}>
+              Login
+            </AuthButton>
+            <AuthButton buttonName="Signup" onClick={switchSignUp}>
+              Sign Up
+            </AuthButton>
+          </div>
         </div>
       </header>
     );
