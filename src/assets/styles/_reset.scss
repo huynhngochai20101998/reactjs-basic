@@ -107,8 +107,8 @@ html {
 
 *:before,
 *:after {
+  overflow: hidden;
   box-sizing: inherit;
-  overflow-y: hidden;
 }
 
 /* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */

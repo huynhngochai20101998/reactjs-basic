@@ -1,59 +1,31 @@
 @import "../../assets/styles/app.scss";
 
-.nav {
-  height: 70px;
-  width: 100%;
-  padding: 5px 12%;
-
+.navbar {
+  box-shadow: 0px 0px 3px 0.1px rgb(54, 53, 53);
   box-sizing: border-box;
-  box-shadow: 0px 0px 0px 0.5px #000;
-  position: fixed;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 90px;
 
   &-brand {
-    &__img {
-      width: 50px;
-      height: 50px;
+    height: 100%;
+
+    img {
+      height: 100%;
     }
   }
-  &-category {
-    &__menu {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: columns;
 
-      width: 30vw;
+  &-menu {
+    &__item {
+      width: 150px;
+      height: 80%;
 
-      .menu-item {
-        font-weight: bold;
-        font-size: 22px;
-      }
-    }
-  }
-  &-addon {
-    height: fit-content;
-    width: fit-content;
-
-    &-auth {
-      padding-top: 5px;
       display: flex;
       align-items: center;
+      justify-content: center;
 
-      .auth-signin {
-        .btn-signin {
-        }
-      }
-      .auth-signup {
-        .btn-signup {
-        }
-      }
+      position: relative;
 
-      .btn {
-        .auth__btn {
-        }
+      &:hover {
+        cursor: pointer;
       }
     }
   }

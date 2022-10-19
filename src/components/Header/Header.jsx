@@ -1,36 +1,44 @@
-import React, { Component } from "react";
+import Logo from "../../assets/images/logo.jpg";
+import { Col, Row } from "reactstrap";
+import { Component } from "react";
 import "./Header.scss";
-import Logo from "../../assets/images/logo.jfif";
-import AuthButton from "../Button/AuthButton/AuthButton";
 
 class Header extends Component {
   render() {
-    const { switchLogin, switchSignUp } = this.props;
+    const {
+      changeStateHomePage,
+      changeStateInfoPage,
+      changeStateSharePage,
+      changeStateContactUsPage,
+    } = this.props;
 
     return (
-      <header className="nav">
-        <div className="nav-brand">
-          <img src={Logo} className="nav-brand__img" alt="Brand" />
-        </div>
-        <div className="nav-category">
-          <div className="nav-category__menu">
-            <div className="menu-item">Item</div>
-            <div className="menu-item">Item</div>
-            <div className="menu-item">Item</div>
-            <div className="menu-item">Item</div>
-          </div>
-        </div>
-        <div className="nav-addon">
-          <div className="nav-addon-auth">
-            <AuthButton buttonName="Login" onClick={switchLogin}>
-              Login
-            </AuthButton>
-            <AuthButton buttonName="Signup" onClick={switchSignUp}>
-              Sign Up
-            </AuthButton>
-          </div>
-        </div>
-      </header>
+      <Row className="navbar px-5 bg-white fixed-top">
+        <Col className="navbar-brand" md="2">
+          <img src={Logo} alt="" />
+        </Col>
+        <Col md="1" />
+        <Col className="navbar-menui" md="5">
+          <ul className="navbar-menu text-capitalize fs-4 fw-bold d-flex justify-content-between">
+            <li className="navbar-menu__item" onClick={changeStateHomePage}>
+              <p>Trang Chủ</p>
+            </li>
+            <li className="navbar-menu__item" onClick={changeStateInfoPage}>
+              <p>Về Chúng Tôi</p>
+            </li>
+            <li className="navbar-menu__item" onClick={changeStateSharePage}>
+              <p>Góc Chia Sẽ</p>
+            </li>
+            <li
+              className="navbar-menu__item"
+              onClick={changeStateContactUsPage}
+            >
+              <p>Liên Hệ</p>
+            </li>
+          </ul>
+        </Col>
+        <Col />
+      </Row>
     );
   }
 }
